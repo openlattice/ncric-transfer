@@ -26,6 +26,7 @@ conductor$ sudo su - openlattice
 conductor$ ~/scripts/conductor/boot.sh
 conductor$ tail -f /opt/openlattice/logging/conductor.log
 ```
+![conductor-banner](https://user-images.githubusercontent.com/440299/152608215-bd982109-dc56-4cdf-953b-10a6392012f4.png)
 
 2. Next, we boot the datastore service
   - ssh into datastore box
@@ -39,7 +40,7 @@ datastore$ sudo su - openlattice
 datastore$ ~/scripts/datastore/boot.sh
 datastore$ tail -f /opt/openlattice/logging/datastore.log
 ```
-
+![datastore-banner](https://user-images.githubusercontent.com/440299/152608258-4a7a0f60-b10f-454f-b888-6f8a66413abd.png)
 
 3. Finally, we boot the indexer service
   - ssh into indexer box
@@ -53,6 +54,7 @@ indexer$ sudo su - openlattice
 indexer$ ~/scripts/indexer/boot.sh
 indexer$ tail -f /opt/openlattice/logging/indexer.log
 ```
+![indexer-banner](https://user-images.githubusercontent.com/440299/152608311-bbe0b939-f594-4a03-867f-5cef6b7edc17.png)
 
 Once all the services are up and running, the app should be working as expected and talking to the stack via the api:
 
