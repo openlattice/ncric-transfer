@@ -1,0 +1,20 @@
+organizationId: 47b646d7-a01a-4232-b25b-15c880ea4046
+
+entityDefinitions:
+  imagesources:
+    fqn: "ol.imagesource"
+    entitySetName: "NCRICImageSources"
+    propertyDefinitions:
+      ol.id:
+        type:  "ol.id" 
+        column: "camera_id"
+      ol.name:
+        type: "ol.name"
+        column: "LPRCameraName"
+      ol.datasource:
+        type: "ol.datasource"
+        column: "datasource"
+    name: "imagesources"
+
+
+associationDefinitions: {}

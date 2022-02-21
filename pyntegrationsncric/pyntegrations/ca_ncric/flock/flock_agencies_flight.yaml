@@ -1,0 +1,23 @@
+organizationId: 47b646d7-a01a-4232-b25b-15c880ea4046
+
+entityDefinitions:
+  agencies:
+    fqn: "ol.agency"
+    entitySetName: "NCRICAgencies"
+    propertyDefinitions:
+      ol.id:
+        type: "ol.id"
+        column: "agency_id"
+      ol.name:
+        type: "ol.name"
+        column: "agencyName"
+      ol.acronym:
+        type: "ol.acronym"
+        column: "agencyAcronym"
+      ol.datasource:
+        type: "ol.datasource"
+        column: "datasource"
+    name: "agencies"
+
+
+associationDefinitions: {}

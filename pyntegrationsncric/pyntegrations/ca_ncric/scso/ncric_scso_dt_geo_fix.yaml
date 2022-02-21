@@ -1,0 +1,39 @@
+#final recurring:
+#intellij sample: "select * from boss3data21_aug2018_top200k limit 5000"
+#piper's july/demo dataset: intellij: "select boss3data_july2018.*, hits.\"hts_Hotlist\", hits.\"hts_Timestamp\" from boss3data_july2018 left join hits on \"red_id\"=hits.\"hts_red_ID\" where hits.\"hts_red_ID\" is not null limit 5000"
+#psql: select * from boss3data21_aug2018_top200k limit 5000;
+
+# In Boss3 [red_id, sourceid, siteid] will remain as it is. In all other DBs, they will get a suffix added.
+# This will correctly merge existing vehicle records with new integrations, in case we reintegrate a record that was already integrated.
+  # (hard to be precise with tombstoning)
+
+organizationId: 47b646d7-a01a-4232-b25b-15c880ea4046
+
+entityDefinitions:
+  vehiclerecords:
+    fqn: "ol.vehicle"
+    entitySetName: "NCRICVehicleRecords"
+    propertyDefinitions:
+      ol.id:
+        type:  "ol.id"
+        column: "vehicle_records_id"
+      ol.locationcoordinates:
+        type: "ol.locationcoordinates"
+        column: "latlon"
+    updateType: PartialReplace
+    name: "vehiclerecords"
+
+  locations:
+    fqn: "ol.location"
+    entitySetName: "NCRICLocations"
+    propertyDefinitions:
+      general.id:
+        type: "general.id"
+        column: "location_id"
+      ol.locationcoordinates:
+        type: "ol.locationcoordinates"
+        column: "latlon"
+    updateType: PartialReplace
+    name: "locations"
+
+associationDefinitions: {}
