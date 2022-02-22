@@ -71,3 +71,12 @@ def get_config(jwt = None, base_url = "https://api.mychildcare.dss.ca.gov"):
     configuration.access_token = jwt
 
     return configuration
+
+def drop_table(engine, table_name):
+    """Drops a table. Useful for dropping intermediate tables
+    after they are used in an integration"""
+    try:
+        engine.execute(f"DROP TABLE {table_name};")
+        print(f"Dropped table {table_name}")
+    except Exception as e:
+        print(f"Could not drop main table due to {str(e)}")
