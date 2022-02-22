@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-setup(name='pyntegrations',
+setup(name='pyntegrationsncric',
       version='0.0.1',
-      description='Integration Definitions for OpenLattice',
+      description='NCRIC Integration Definitions for OpenLattice',
       author='OpenLattice',
       author_email='info@openlattice.com',
       packages=find_packages(),
