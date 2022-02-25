@@ -1,0 +1,7 @@
+server:
+  jdbcUrl: "jdbc:postgresql://{{atlas-host}}:30001"
+  username: "{{db-username}}"
+  password: "{{db-password}}"
+  maximumPoolSize: 100
+  connectionTimeout: 120000
+ssl: true

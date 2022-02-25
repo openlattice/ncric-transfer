@@ -1,0 +1,10 @@
+clientId: "{{machine-to-machine-client-id}}"
+clientSecret: "{{machine-to-machine-client-secret}}"
+configurations:
+  - issuer: "https://{{your-account}}.us.auth0.com/"
+    audience: "{{spa-client-id}}"
+    secret: "{{spa-client-secret}}"
+    base64EncodedSecret: false
+    signingAlgorithm: "HS256"
+domain: "{{your-account}}.us.auth0.com"
+managementApiUrl: "https://{{your-account}}.us.auth0.com/api/v2/"

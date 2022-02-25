@@ -1,0 +1,4 @@
+smtp-host: {{aws-smtp-host}}
+smtp-port: 465
+username: {{ses-user-access-key-id}}
+password: {{ses-user-secret-access-key}}

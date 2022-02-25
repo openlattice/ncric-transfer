@@ -1,0 +1,39 @@
+enable-persistence:  false
+session-clustering-enabled: false
+
+hazelcast:
+    server: true
+    cp-member-count: 0
+    group: "production"
+    password: "openlattice"
+    seed-nodes:
+        - "{{conductor-host}}"
+    durable-executors:
+        - name: "_rhizome_job_service_"
+          pool-size: 2
+          capacity: 128
+          durability: 1
+    scheduled-executors:
+        - name: "hazelcast_scheduled_tasks"
+          pool-size: 2
+          capacity: 128
+          durability: 1
+
+hazelcast-clients:
+    IDS:
+        server: false
+        group: "production"
+        password: "openlattice"
+        seed-nodes:
+            - "{{conductor-host}}"
+
+postgres:
+    initialize-indices: false
+    initialize-tables: false
+    citus: false
+    hikari:
+        jdbcUrl: "jdbc:postgresql://{{blackpanther-host}}:5432/openlattice?sslmode=require"
+        username: "{{db-username}}"
+        password: "{{db-password}}"
+        maximumPoolSize: 100
+        connectionTimeout: 120000

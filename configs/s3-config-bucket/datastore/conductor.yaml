@@ -1,0 +1,6 @@
+reportEmailAddress: {{support-email}}
+searchConfiguration:
+  elasticsearchUrl: {{elasticsearch-host}}
+  elasticsearchCluster: {{cluster-name}}
+  elasticsearchPort: 9300
+  elasticsearchRestPort: 9200

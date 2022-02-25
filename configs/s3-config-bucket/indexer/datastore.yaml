@@ -1,0 +1,10 @@
+bucketName: "{{media-storage-bucket}}"
+regionName: "{{region}}"
+timeToLive: 300000
+accessKeyId: "{{media-user-access-key-id}}"
+secretAccessKey: "{{media-user-secret-access-key}}"
+searchConfiguration:
+  elasticsearchUrl: {{elasticsearch-host}}
+  elasticsearchCluster: {{cluster-name}}
+  elasticsearchPort: 9300
+  elasticsearchRestPort: 9200
