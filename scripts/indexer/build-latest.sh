@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+if [ ! -d ~/openlattice ]; then
+  echo >&2 'Git repo ~/openlattice not found!'
+  exit 1
+fi
 
-currentDir=$(pwd)
+set -euxo pipefail
 cd ~/openlattice
 
-git pull
-git submodule update
+git checkout main && git pull && git submodule update
 ./gradlew clean :indexer:distTar -x test
 
-mv /opt/openlattice/indexer/ /opt/openlattice/indexer_$(date +"%Y-%m-%d_%H-%M-%S")
-rm -f /opt/openlattice/indexer.tgz
-
-mv ~/openlattice/indexer/build/distributions/indexer.tgz /opt/openlattice
+if [ -d /opt/openlattice/indexer ]; then
+  mv /opt/openlattice/indexer /opt/openlattice/indexer_$(date +"%Y-%m-%d_%H-%M-%S")
+else
+  mkdir -p /opt/openlattice
+fi
+mv -f ./indexer/build/distributions/indexer.tgz /opt/openlattice/
 
 cd /opt/openlattice
-tar -xzvf indexer.tgz
-
-cd $currentDir
+tar xzvf indexer.tgz

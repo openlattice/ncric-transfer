@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+if [ ! -d ~/openlattice ]; then
+  echo >&2 'Git repo ~/openlattice not found!'
+  exit 1
+fi
 
-currentDir=$(pwd)
+set -euxo pipefail
 cd ~/openlattice
 
-git pull
-git submodule update
+git checkout main && git pull && git submodule update
 ./gradlew clean :datastore:distTar -x test
 
-mv /opt/openlattice/datastore/ /opt/openlattice/datastore_$(date +"%Y-%m-%d_%H-%M-%S")
-rm -f /opt/openlattice/datastore.tgz
-
-mv ~/openlattice/datastore/build/distributions/datastore.tgz /opt/openlattice
+if [ -d /opt/openlattice/datastore ]; then
+  mv /opt/openlattice/datastore /opt/openlattice/datastore_$(date +"%Y-%m-%d_%H-%M-%S")
+else
+  mkdir -p /opt/openlattice
+fi
+mv -f ./datastore/build/distributions/datastore.tgz /opt/openlattice/
 
 cd /opt/openlattice
-tar -xzvf datastore.tgz
-
-cd $currentDir
+tar xzvf datastore.tgz
