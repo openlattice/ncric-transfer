@@ -106,17 +106,6 @@ associationDefinitions:
         column: "recordedby3_id"
     name: "recordedby3"
 
-  locatedat1:
-    fqn: "ol.locatedat"
-    entitySetName: "NCRICLocatedAt"
-    src: "imagesources"
-    dst: "locations"
-    propertyDefinitions:
-      general.id:
-        type: "general.id"
-        column: "locatedat1_id"
-    name: "locatedat1"
-
   collectedby:
     fqn: "ol.collectedby"
     entitySetName: "NCRICCollectedBy"
