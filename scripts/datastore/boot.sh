@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# boot.sh [flags] ...
+# optional flags for conductor in addition to "aws" and "postgres"
+
 set -exo pipefail
 cd /opt/openlattice
 
