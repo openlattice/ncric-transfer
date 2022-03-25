@@ -14,7 +14,7 @@ cd ~/openlattice
 git stash > /dev/null
 git checkout ${1:-main}
 git pull --rebase --prune
-git submodule update --init --recursive
+git submodule update --recursive
 git stash pop 2> /dev/null || true
 
 ./gradlew clean :indexer:distTar -x test
